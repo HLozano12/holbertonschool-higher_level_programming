@@ -4,9 +4,9 @@ number = random.randint(-10000, 10000)
 
 if number < 0:
     negnum = number * -1
+    lastNum = (negnum % 10) * -1
 else:
-    negnum = number
-lastNum = number % 10
+    lastNum = number % 10
 
 if lastNum > 5:
     print('Last digit of {} is {} and is greater than 5'
