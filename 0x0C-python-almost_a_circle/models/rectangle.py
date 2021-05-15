@@ -4,6 +4,7 @@
 from models.base import Base
 """Import"""
 
+
 class Rectangle(Base):
     """Rect inherits child base"""
 
