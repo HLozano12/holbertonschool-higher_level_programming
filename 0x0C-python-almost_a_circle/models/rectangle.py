@@ -4,7 +4,7 @@
 
 from models.base import Base
 import inspect
-"""Import"""
+
 
 
 class Rectangle(Base):
