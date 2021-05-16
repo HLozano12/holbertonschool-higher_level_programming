@@ -11,7 +11,7 @@ class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """Class constructor"""
-        super()__init__(id)
+        super().__init__(id)
         self.height = height
         self.width = width
         self.x = x
@@ -27,7 +27,7 @@ class Rectangle(Base):
 
             webster = {}
             for h in inspect.getmembers(self):
-                if not h[0].startswitch("_"):
+                if not h[0].startswith("_"):
                     if not inspect.ismethod(i[1]) and\
                        not inspect.isfunction(h[1]):
                         webster[h[0]] = h[1]
