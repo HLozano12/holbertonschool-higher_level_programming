@@ -6,7 +6,6 @@ from models.base import Base
 import inspect
 
 
-
 class Rectangle(Base):
     """Rect inherits child base"""
 
