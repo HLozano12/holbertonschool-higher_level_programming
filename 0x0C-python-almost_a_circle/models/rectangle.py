@@ -11,7 +11,7 @@ class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """Class constructor"""
-        super()__init)__(id)
+        super()__init__(id)
         self.height = height
         self.width = width
         self.x = x
@@ -19,35 +19,46 @@ class Rectangle(Base):
 
     def area(self):
         """obtain area of rect"""
-        area = self.__width * self.__height
-        return area
+
+        return self.height * self.width
 
     def to_dictionary(self):
         """rtrn dict reprsnt of Rect"""
-        return {'id': self.id, 'width': self.__width, 'height': self.__height,
-                'x': self.__x, 'y': self.__y}
+
+        webster = {}
+        for h in inspect.getmembers(self):
+            if not h[0].startswitch("_"):
+                if not inspect.ismethod(i[1]) and\
+                   not inspect.isfunction(h[1]):
+                    webster[h[0]] = h[1]
+        return webster
+
     @property
     def width(self):
         """getter for width"""
+
         return self.__width
 
     @width.setter
     def width(self, value):
         """My setter"""
+
         if type(value) is not int:
-            raise TypeError("width must be an interger")
+            raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be > 0")
         self.__width = value
 
     @property
     def height(self):
-        "getter for height"""
+        """getter for height"""
+
         return self.__height
 
     @height.setter
     def height(self, value):
-        "height setter"
+        """height setter"""
+
         if type(value) is not int:
             raise TypeError("height must be an integer")
         if value <= 0:
@@ -57,25 +68,29 @@ class Rectangle(Base):
     @property
     def x(self):
         """getter for x"""
+
         return self.__x
 
     @x.setter
     def x(self, value):
         """x setter"""
+
         if type(value) is not int:
             raise TypeError("x must be an integer")
         if value < 0:
-            raise ValueErro("x must be >= 0")
+            raise ValueError("x must be >= 0")
         self.__x = value
 
     @property
     def y(self):
         """y getter"""
+
         return self.__y
 
     @y.setter
     def y(self, value):
         """Setter for y"""
+
         if type(value) is not int:
             raise TypeError("y must be integer")
         if value < 0:
@@ -84,14 +99,16 @@ class Rectangle(Base):
 
     def __str__(self):
         """string format"""
-        return "[Rectange] ({}) {}/{} - {}/{}" format(
-            self.id, self.__x, self.__y, self.width, self.__height_)
 
-    def update(self, *args):
-        """task 8/update class"""
+        stg = "[Rectange] ({}) ".format(self.id)
+        stg2 = "{}/{} - {}/{}".format(self.__x, self.__y, self.width,
+                                      self.__height_)
+
+        return stg + stg2
 
     def update(self, *args, **kwargs):
         """update rect values"""
+
         indx = [self.id, self.__width, self.__height, self.__x, self.__y]
         if len(args) >= 1:
             for h in range(len(args)):
@@ -108,11 +125,12 @@ class Rectangle(Base):
                     indx[3] = kwargs[h]
                 if h == 'y':
                     indx[4] = kwargs[h]
-        self.__init__(indx[[1]. indx[2], indx[3], indx[4], indx[0])
+        self.__init__(indx[1], indx[2], indx[3], indx[4], indx[0])
 
     def display(self):
         """print stdout Rect"""
+
         for sides in range(self.__y):
             print()
         for rows in range(0, self.__height):
-            print ("{}{}".format(' ' * self.__x, "#" * self.width))
+            print("{}{}".format(' ' * self.__x, "#" * self.width))
