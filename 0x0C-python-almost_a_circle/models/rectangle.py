@@ -2,6 +2,7 @@
 """Given Module"""
 
 from models.base import Base
+import inspect
 """Import"""
 
 
@@ -81,4 +82,37 @@ class Rectangle(Base):
             raise ValueError("y must be >= 0")
         self.__y = value
 
-    
+    def __str__(self):
+        """string format"""
+        return "[Rectange] ({}) {}/{} - {}/{}" format(
+            self.id, self.__x, self.__y, self.width, self.__height_)
+
+    def update(self, *args):
+        """task 8/update class"""
+
+    def update(self, *args, **kwargs):
+        """update rect values"""
+        indx = [self.id, self.__width, self.__height, self.__x, self.__y]
+        if len(args) >= 1:
+            for h in range(len(args)):
+                indx[h] = args[h]
+        else:
+            for h in kwargs:
+                if h == 'id':
+                    indx[0] = kwargs[h]
+                if h == 'width':
+                    indx[1] = kwargs[h]
+                if h == 'height':
+                    indx[2] = kwargs[h]
+                if h == 'x':
+                    indx[3] = kwargs[h]
+                if h == 'y':
+                    indx[4] = kwargs[h]
+        self.__init__(indx[[1]. indx[2], indx[3], indx[4], indx[0])
+
+    def display(self):
+        """print stdout Rect"""
+        for sides in range(self.__y):
+            print()
+        for rows in range(0, self.__height):
+            print ("{}{}".format(' ' * self.__x, "#" * self.width))
