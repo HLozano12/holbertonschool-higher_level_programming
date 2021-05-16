@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Given Module"""
+"""Given Module to contain rectangle information"""
 
 
 from models.base import Base
