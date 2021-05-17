@@ -102,7 +102,7 @@ class Rectangle(Base):
 
         stg = "[Rectangle] ({}) ".format(self.id)
         stg2 = "{}/{} - {}/{}".format(self.__x, self.__y, self.width,
-                                          self.__height)
+                                      self.__height)
 
         return stg + stg2
 
