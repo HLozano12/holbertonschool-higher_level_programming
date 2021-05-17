@@ -97,14 +97,14 @@ class Rectangle(Base):
             raise ValueError("y must be >= 0")
         self.__y = value
 
-        def __str__(self):
-            """string format"""
+    def __str__(self):
+        """string format"""
 
-            stg = "[Rectange] ({}) ".format(self.id)
-            stg2 = "{}/{} - {}/{}".format(self.__x, self.__y, self.width,
-                                          self.__height_)
+        stg = "[Rectangle] ({}) ".format(self.id)
+        stg2 = "{}/{} - {}/{}".format(self.__x, self.__y, self.width,
+                                          self.__height)
 
-            return stg + stg2
+        return stg + stg2
 
     def update(self, *args, **kwargs):
         """update rect values"""
