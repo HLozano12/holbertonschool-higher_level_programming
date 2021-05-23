@@ -41,38 +41,34 @@ class Base:
         """Write json str rep to list_obj"""
         if list_objs is None:
             list_objs = []
-        j_string = []
+        j_string_list = []
         for obj in list_objs:
-            j_string.append(obj.to_dictionary())
-        j_string = cls.to_json_string(j_string)
+            j_string_list.append(obj.to_dictionary())
+        json_string = cls.to__json_string(j_string_list)
         with open(cls.__name__ + ".json", mode='w') as h:
             h.write(json_string)
 
     @classmethod
     def load_from_file(cls):
         """method to return list of instances"""
-        the_list = []
-        obj_list = []
         filename = cls.__name__ + ".json"
-        if os.path.exists(filename):
-            with open(filename, mode="r") as file:
-                json_str = file.read()
-            the_list = cls.from_json_string(json_str)
-            for idx in the_list:
-                webster = dict(item)
-                obj = cls.create(**my_dict)
-                obj_list.append(obj)
-            return obj_list
+        if not os.path.exists(file_path):
+            return []
         else:
-            return the_list
+            with open(file_path), 'r') as h:
+                 list = cls.from_json_string(h.read())
+            list_rect = []
+            for rect in list:
+                list_rect.append(cls.create(**rect))
+        return list_rect
 
     @classmethod
     def create(cls, **dictionary):
         """return an instance with attr set"""
-        if len(dictionary) == 1:
+        if cls.__name__ == 'Rectangle':
             dummy = cls(1)
             dummy.update(**dictionary)
-        else:
+        if:
             dummy = cls(2, 2)
             dummy.update(**dictionary)
         return dummy
