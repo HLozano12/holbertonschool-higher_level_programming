@@ -20,18 +20,12 @@ class Rectangle(Base):
     def area(self):
             """obtain area of rect"""
 
-            return self.height * self.width
+            return self.__height * self.__width
 
     def to_dictionary(self):
         """rtrn dict reprsnt of Rect"""
-
-        webster = {}
-        for h in inspect.getmembers(self):
-            if not h[0].startswith("_"):
-                if not inspect.ismethod(i[1]) and\
-                   not inspect.isfunction(h[1]):
-                    webster[h[0]] = h[1]
-        return webster
+        return {"id": self.id, "width": self.__width, "height": self.__height,
+                "x": self.__x, "y": self.__y}
 
     @property
     def width(self):
@@ -101,7 +95,7 @@ class Rectangle(Base):
         """string format"""
 
         stg = "[Rectangle] ({}) ".format(self.id)
-        stg2 = "{}/{} - {}/{}".format(self.__x, self.__y, self.width,
+        stg2 = "{}/{} - {}/{}".format(self.__x, self.__y, self.__width,
                                       self.__height)
 
         return stg + stg2
