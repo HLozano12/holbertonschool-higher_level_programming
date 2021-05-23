@@ -1,74 +1,63 @@
 #!/usr/bin/python3
-"""Our module"""
-
+"""almost a circle"""
 import json
 import os
 
 
 class Base:
-    """Class named Base"""
+
+    """base class"""
 
     __nb_objects = 0
-    """private class attribute"""
 
     def __init__(self, id=None):
-
-        if id is None:
+        if id:
+            self.id = id
+        else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
-        else:
-            Base.__nb_object += 1
-            self.id = Base.__nb_onjects
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """update class Base"""
+        """encode the dictionaries to json string"""
+
         if list_dictionaries is None or list_dictionaries == {}:
-            return "{}"
+            return "[]"
         else:
             return json.dumps(list_dictionaries)
 
     @staticmethod
     def from_json_string(json_string):
-        """return list of json rep"""
+        """decode the json string to a list of dictionaries"""
+
         if json_string is None or json_string == '':
             return []
         else:
             return json.loads(json_string)
 
-    @classmethod
-    def save_to_file(cls, list_objs):
-        """Write json str rep to list_obj"""
-        if list_objs is None:
-            list_objs = []
-        j_string_list = []
-        for obj in list_objs:
-            j_string_list.append(obj.to_dictionary())
-        json_string = cls.to__json_string(j_string_list)
-        with open(cls.__name__ + ".json", mode='w') as h:
-            h.write(json_string)
+    @classmethod                                                                                                    def load_from_file(cls):                                                                                            """class method for load from file"""                                                                                                                                                                                           file_path = cls.__name__ + ".json"                                                                              if not os.path.exists(file_path):                                                                                   return []                                                                                                   else:                                                                                                               with open(file_path, 'r') as h:                                                                                     list = cls.from_json_string(h.read())                                                                   list_rect = []                                                                                                  for rect in list:                                                                                                   list_rect.append(cls.create(**rect))                                                                        return list_rect
 
     @classmethod
-    def load_from_file(cls):
-        """method to return list of instances"""
-        filename = cls.__name__ + ".json"
-        if not os.path.exists(file_path):
-            return []
-        else:
-            with open(file_path), 'r') as h:
-                 list = cls.from_json_string(h.read())
-            list_rect = []
-            for rect in list:
-                list_rect.append(cls.create(**rect))
-        return list_rect
+    def save_to_file(cls, list_objs):
+        """class method to save a file"""
+
+        if list_objs is None:
+            list_objs = []
+        json_string_list = []
+        for obj in list_objs:
+            json_string_list.append(obj.to_dictionary())
+        json_string = cls.to_json_string(json_string_list)
+        with open(cls.__name__ + ".json", "w") as f:
+            f.write(json_string)
 
     @classmethod
     def create(cls, **dictionary):
-        """return an instance with attr set"""
+        """creat a dummy instance"""
+
         if cls.__name__ == 'Rectangle':
-            dummy = cls(1)
+            dummy = cls(1, 1)
             dummy.update(**dictionary)
-        if:
-            dummy = cls(2, 2)
+        if cls.__name__ == 'Square':
+            dummy = cls(1)
             dummy.update(**dictionary)
         return dummy
