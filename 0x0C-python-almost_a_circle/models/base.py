@@ -35,7 +35,19 @@ class Base:
         else:
             return json.loads(json_string)
 
-    @classmethod                                                                                                    def load_from_file(cls):                                                                                            """class method for load from file"""                                                                                                                                                                                           file_path = cls.__name__ + ".json"                                                                              if not os.path.exists(file_path):                                                                                   return []                                                                                                   else:                                                                                                               with open(file_path, 'r') as h:                                                                                     list = cls.from_json_string(h.read())                                                                   list_rect = []                                                                                                  for rect in list:                                                                                                   list_rect.append(cls.create(**rect))                                                                        return list_rect
+    @classmethod
+    def load_from_file(cls):
+        """class method for load from from"""
+        file_path = cls.__name__ + ".json"
+        if not os.path.exists(file_path):
+            return []
+        else:
+            with open(file_path, 'r') as h:
+                list = cls.from_json_string(h.read())
+                list_rect = []
+                for rect in list:
+                    list_rect.append(cls.create(**rect))
+                    return list_rect
 
     @classmethod
     def save_to_file(cls, list_objs):
