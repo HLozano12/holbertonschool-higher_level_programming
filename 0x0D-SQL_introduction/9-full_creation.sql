@@ -1,7 +1,7 @@
 -- Create table second_table in database
 -- multiple rows id, name, score
 -- SELECT and SHOW not allowed
-CREATE TABLE IF NOT EXIST second_table (
+CREATE TABLE IF NOT EXISTS second_table (
         id INT,
         name VARCHAR(256),
         score INT
