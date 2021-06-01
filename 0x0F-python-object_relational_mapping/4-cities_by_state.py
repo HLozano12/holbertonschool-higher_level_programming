@@ -11,7 +11,7 @@ if __name__ == "__main__":
                                     argv[2],
                                     argv[3])
 
-    with db_connection.cursor() as cursor;
+    with db_connection.cursor() as cursor:
 
     cursor.execute("""SELECT cities.id, cities.name, states.name FROM cities
                    JOIN states ON cities.state_id = states.id""")
