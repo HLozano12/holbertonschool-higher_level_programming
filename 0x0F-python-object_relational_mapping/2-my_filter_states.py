@@ -13,7 +13,8 @@ if __name__ == "__main__":
 
     cursor = db_connection.cursor()
 
-    cursor.execute("SELECT * FROM states WHERE BINARY name = '{}'".format(argv[4]))
+    cursor.execute("SELECT * FROM states WHERE BINARY name = '{}'"
+                   .format(argv[4]))
     """W3school BINARY Function BINARY valye syntax"""
 
     states = cursor.fetchall()
