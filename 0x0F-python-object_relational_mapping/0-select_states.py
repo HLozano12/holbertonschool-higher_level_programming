@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" List all states from database hbtn_0e_0usa """
+"""List all states from database hbtn_0e_0usa"""
 
 
 if __name__ == "__main__":
