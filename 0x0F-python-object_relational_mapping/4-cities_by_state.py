@@ -11,12 +11,12 @@ if __name__ == "__main__":
                                     argv[2],
                                     argv[3])
 
-    cursor = db_connection.cursor()
+    with db_connection.cursor() as cursor;
 
     cursor.execute("""SELECT cities.id, cities.name, states.name FROM cities
                    JOIN states ON cities.state_id = states.id""")
 
-    states = cursor.fetchall()
+    cities = cursor.fetchall()
 
     for h in range(len(cities)):
         print(cities[h])
