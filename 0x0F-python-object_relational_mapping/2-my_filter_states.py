@@ -13,10 +13,10 @@ if __name__ == "__main__":
 
     cursor = db_connection.cursor()
 
-    cursor.execute("SELECT * FROM states")
+    cursor.execute("SELECT * FROM states WHERE BINARY name = '{}'".format(argv[4]))
+    """W3school BINARY Function BINARY valye syntax"""
 
     states = cursor.fetchall()
 
     for h in range(len(states)):
-        if (states[h][1].startswith('N')):
-            print(states[h])
+        print(states[h])
