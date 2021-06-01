@@ -6,16 +6,16 @@ if __name__ == "__main__":
     import MySQLdb
     from sys import argv
 
-db_connection = MySQLdb.connect("localhost",
-                                argv[1],
-                                argv[2],
-                                argv[3])
+    db_connection = MySQLdb.connect("localhost",
+                                    argv[1],
+                                    argv[2],
+                                    argv[3])
 
-cursor = db_connection.cursor()
+    cursor = db_connection.cursor()
 
-cursor.execute("SELECT * FROM states")
+    cursor.execute("SELECT * FROM states")
 
-states = cursor.fetchall()
+    states = cursor.fetchall()
 
-for h in range(len(states)):
-    print(states[h])
+    for h in range(len(states)):
+        print(states[h])
