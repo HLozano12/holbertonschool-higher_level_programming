@@ -13,10 +13,10 @@ if __name__ == "__main__":
 
     with db_connection.cursor() as cursor:
 
-    cursor.execute("""SELECT cities.id, cities.name, states.name FROM cities
-                   JOIN states ON cities.state_id = states.id""")
+        cursor.execute("""SELECT cities.id, cities.name, states.name FROM cities
+                       JOIN states ON cities.state_id = states.id""")
 
-    cities = cursor.fetchall()
+        cities = cursor.fetchall()
 
     for h in range(len(cities)):
         print(cities[h])
