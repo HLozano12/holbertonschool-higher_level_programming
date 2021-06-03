@@ -8,9 +8,9 @@ Initialize the instance attribute height with the value of h
 */
 
 class Rectangle {
-    contructor (w, h) {
-        this.width = w;
-        this.height = h;
-    }
+  contructor (w, h) {
+    this.width = w;
+    this.height = h;
+  }
 }
 module.exports = Rectangle;
