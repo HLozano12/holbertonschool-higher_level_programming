@@ -19,4 +19,4 @@ if __name__ == "__main__":
     ints_sessh = Session()
 
     for str in state:
-       print("{}: {}".format(str.id, str.name)) 
+        print("{}: {}".format(str.id, str.name))
