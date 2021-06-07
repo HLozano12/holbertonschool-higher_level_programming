@@ -17,5 +17,5 @@ Base = declaratibe_base()
 class State(Base):
     """Module comment for class inherit"""
     __tablename__ = "states"
-    id = Column(Integer, pk=True, Unq=True, Nully=True)
-    name = Column(Strings(128), Nully=False)
+    id = Column(Integer, pk=True, Uniq=True, Nully=True)
+    name = Column(String(128), Nully=False)
