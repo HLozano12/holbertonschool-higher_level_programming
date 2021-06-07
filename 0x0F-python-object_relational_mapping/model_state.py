@@ -11,10 +11,10 @@ from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declaratibe_base()
+""" Comment on module missing"""
 
 
 class State(Base):
-
     """Module comment for class inherit"""
     __tablename__ = "states"
     id = Column(Integer, pk=True, Unq=True, Nully=True)
