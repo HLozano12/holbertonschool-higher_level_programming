@@ -6,14 +6,11 @@ print a square
   if arg not covert to int, print "missing size"
 */
 
-const MyArgs = process.argv.slice(2);
-
-const number = MyArgs[0];
-let x;
-
-if (parseInt(number)) {
-  for (x = 0; x < number; x++) {
-    str += 'X';
+if (typeof process.argv[2] !== 'undefined' && !isNaN(process.argv[2])) {
+  const x = parseInt(process.argv[2]);
+  for (let xx = 0; xx < x; xx++) {
+    console.log('X'.repeat(x));
   }
-  
+} else {
+  console.log('Missing size');
 }
