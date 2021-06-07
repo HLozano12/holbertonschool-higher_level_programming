@@ -9,8 +9,13 @@ and lists all cities of that state, using the database hbtn_0e_4_usa
 
 
 if __name__ == "__main__":
-    import MySQLdb
     from sys import argv
+    import MySQLdb
+
+    db_connection = MySQLdb.connect('localhost',
+                                    argv[1],
+                                    argv[2],
+                                    argv[3])
 
     with db_connection.cursor() as cursor:
         cursor.execute("""
@@ -29,9 +34,10 @@ if __name__ == "__main__":
             })
 
         cities = cursor.fetchall()
-for h in range(len(cities)):
-    print(citites[h][0], end="")
-    if h < (len(citites) - 1):
-        print("", end=", ")
 
-print()
+    for h in range(len(cities)):
+        print(cities[h][0], end="")
+        if h < (len(cities) - 1):
+            print("", end=", ")
+
+    print()
