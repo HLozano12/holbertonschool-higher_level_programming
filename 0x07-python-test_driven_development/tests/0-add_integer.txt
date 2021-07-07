@@ -14,3 +14,8 @@ OverflowError: cannot convert float infinity to integer
 >>> add_integer(float('NaN'), float('NaN'))
 Traceback (most recent call last):
 ValueError: cannot convert float NaN to integer
+>>> add_integer(a, b=0)
+Traceback (most recent call last):
+NameError: name 'a' is not defined
+add_integer(a=0, b=0)
+0
