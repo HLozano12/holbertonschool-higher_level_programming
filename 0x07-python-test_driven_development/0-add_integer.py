@@ -3,10 +3,7 @@
 
 
 def add_integer(a, b=98):
-    """Our provided prototype to add 2 ints
-
-    """
-
+    """Our provided prototype to add 2 ints"""
 
     if type(a) is float:
         a = int(a)
